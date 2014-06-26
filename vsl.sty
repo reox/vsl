@@ -10,18 +10,37 @@
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{eso-pic}
-\usepackage[top=10mm, bottom=10mm, left=10mm, right=10mm]{geometry}
+\usepackage{color}
+\usepackage[top=10mm, bottom=10mm, left=10mm, right=10mm, landscape]{geometry}
 
 \pagestyle{empty}
 
 \usepackage{fontspec}
 \setmainfont{PT Sans}
 
+\definecolor{vslblue}{HTML}{162d59}
+
+\newcommand\Building{This is the Building}
+\newcommand\Room{This is the Room}
+\newcommand\Conference{AABD}
+
 
 \newcommand\BackgroundPic{%
-        \parbox[b][\paperheight]{\paperwidth}{%
-            \includegraphics[width=0.2\paperwidth,height=0.2\paperheight,keepaspectratio]{VSL_logo_big.png}
-    }}
+    \parbox[b][\paperheight]{\paperwidth}{%
+    \includegraphics[width=0.2\paperwidth,height=0.2\paperheight,keepaspectratio]{VSL_logo_big.png}
+}}
+
+\newcommand\printVSL{
+    {\fontsize{1cm}{1cm}\selectfont \Building}
+    \newline
+    \newline
+    \newline
+    \vspace{5cm}
+    {\fontsize{3cm}{3cm}\selectfont \Room}
+    \newline
+    \vspace{10cm}
+    {\fontsize{5cm}{5cm}\selectfont \textbf{\color{vslblue}{\Conference}}}
+}
 
 
 \endinput
