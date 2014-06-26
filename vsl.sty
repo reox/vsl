@@ -1,0 +1,29 @@
+% Vienna Summer of Logic Sign Template
+% 
+% (c) Sebastian Bachmann
+% 
+\ProvidesPackage{vsl}
+\NeedsTeXFormat{LaTeX2e}
+
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{eso-pic}
+\usepackage[top=10mm, bottom=10mm, left=10mm, right=10mm]{geometry}
+
+\pagestyle{empty}
+
+\usepackage{fontspec}
+\setmainfont{PT Sans}
+
+
+\newcommand\BackgroundPic{%
+        \parbox[b][\paperheight]{\paperwidth}{%
+            \includegraphics[width=0.2\paperwidth,height=0.2\paperheight,keepaspectratio]{VSL_logo_big.png}
+    }}
+
+
+\endinput
+%%
+%% End of file `vsl.sty'.
