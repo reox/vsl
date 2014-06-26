@@ -11,7 +11,7 @@
 \usepackage{graphicx}
 \usepackage{eso-pic}
 \usepackage{color}
-\usepackage[top=10mm, bottom=10mm, left=10mm, right=10mm, landscape]{geometry}
+\usepackage[top=10mm, bottom=0mm, left=0mm, right=0mm, landscape]{geometry}
 
 \pagestyle{empty}
 
@@ -33,15 +33,18 @@
 }}
 
 \newcommand\printVSL{
-    {\fontsize{1cm}{1cm}\selectfont {\Building, \Area, \Floor}}
+
+    \parbox{0.9\textwidth}{
+    {\fontsize{1cm}{1em}\selectfont {\Building, \Area, \Floor}}
     \newline
-    \newline
-    \newline
-    \vspace{5cm}
     {\fontsize{3cm}{3cm}\selectfont \Room}
-    \newline
-    \vspace{10cm}
-    {\fontsize{5cm}{5cm}\selectfont \textbf{\color{vslblue}{\Conference}}}
+}
+
+    \parbox[b][0.35\paperheight]{\paperwidth}{
+        \begin{center}
+            {\fontsize{3.5cm}{3.5cm}\selectfont \textbf{\color{vslblue}{\Conference}}}
+        \end{center}
+    }
 }
 
 
