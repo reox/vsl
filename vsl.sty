@@ -20,7 +20,6 @@
 
 \definecolor{vslblue}{HTML}{162d59}
 
-\newcommand\Building{This is the Building}
 \newcommand\Room{This is the Room}
 \newcommand\Conference{AABD}
 \newcommand\Area{Stiege III}
@@ -34,17 +33,18 @@
 
 \newcommand\printVSL{
 
-    \parbox{0.9\textwidth}{
-    {\fontsize{1cm}{1em}\selectfont {\Building, \Area, \Floor}}
-    \newline
-    {\fontsize{3cm}{3cm}\selectfont \Room}
-}
-
-    \parbox[b][0.35\paperheight]{\paperwidth}{
+    \parbox[t][0.35\paperheight]{\paperwidth}{
         \begin{center}
             {\fontsize{3.5cm}{3.5cm}\selectfont \textbf{\color{vslblue}{\Conference}}}
         \end{center}
     }
+
+    \parbox[b]{0.9\textwidth}{
+        {\fontsize{1cm}{1em}\selectfont {\Area, \Floor}}
+        \newline
+        {\fontsize{3cm}{3cm}\selectfont \Room}
+    }
+
 }
 
 
