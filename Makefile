@@ -1,4 +1,4 @@
-OBJECTS=sign_text.pdf
+OBJECTS=sign_text.pdf sign_door.pdf
 
 all: ${OBJECTS}
 
