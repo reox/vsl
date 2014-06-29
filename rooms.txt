@@ -1,0 +1,63 @@
+Hörsaal 1
+Hörsaal 5
+Hörsaal 6
+Hörsaal 8
+Hörsaal 2
+Hörsaal 4
+Hörsaal 3
+Hörsaal 7
+Seminarraum 101A
+Seminarraum 101B
+Seminarraum 325/2
+Seminarraum 101C
+Seminarraum 303
+Seminarraum 325/1
+Seminarraum 104
+Kleiner Seminarraum
+Besprechungszimmer
+Seminarraum 134
+Seminarraum 134A
+Seminarraum 107
+CAD 2
+Zeichensaal 3
+Seminarraum 138A
+Seminarraum 138B
+CAD 1
+Zeichensaal 1
+Dissertantenraum
+Seminarraum 138C
+Seminarraum 136
+Informatikhörsaal
+Seminarraum 1/3 OPG
+Seminarraum 107/1
+Prechtlsaal
+Festsaal
+Seminarraum Kuppel
+Kuppelsaal
+Zeichensaal 15
+Seminarraum 212/232
+Hörsaal 15
+Hörsaal 14
+Hörsaal 14A
+GUT Schulungsraum
+Zeichensaal 13
+Zeichensaal 14
+Seminarraum 225
+Hörsaal 12
+Seminarraum 2
+Seminarraum 3
+Seminarraum 4
+Seminarraum 5
+Seminarraum 6
+Seminarraum 7
+Hörsaal 7
+Aufbaulabor
+Hörsaal 4
+Foyer
+EI 7
+EI 8
+EI 9
+EI 10
+Kontaktraum
+Seminarraum 124
+Seminarraum 121

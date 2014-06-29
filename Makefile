@@ -1,13 +1,20 @@
-OBJECTS=sign_text.pdf sign_door.pdf
+OUTPUT_DIR_ROOMS=out_rooms
 
-all: ${OBJECTS}
+TEX_FILES_ROOMS := $(wildcard rooms/*.tex)
+PDF_FILES_ROOMS := $(addprefix ${OUTPUT_DIR_ROOMS}/,$(notdir $(TEX_FILES_ROOMS:.tex=.pdf)))
 
-%.pdf: %.tex
-	xelatex $<
+all: ${PDF_FILES_ROOMS} merge_pdf
 
-show: all
-	evince sign_text.pdf
+check_dirs:
+	[ -d ${OUTPUT_DIR_ROOMS} ] ||  mkdir ${OUTPUT_DIR_ROOMS}
 
-.PHONY : clean
+
+merge_pdf:
+	convert ${PDF_FILES_ROOMS} all_rooms.pdf
+
+${OUTPUT_DIR_ROOMS}/%.pdf: rooms/%.tex
+	xelatex -output-directory=${OUTPUT_DIR_ROOMS} $<
+
+.PHONY : clean check_dirs rem_auxlog
 clean:
-	rm ${OBJECTS}
+	rm ${PDF_FILES_ROOMS}
