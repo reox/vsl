@@ -9,6 +9,7 @@ do
 cat > rooms/$rname.tex <<EOF
 \documentclass[a4paper]{article}
 \usepackage{vsl}
+\usepackage[top=10mm, bottom=0mm, left=0mm, right=0mm, landscape]{geometry}
 \renewcommand\Room{$room}
 \begin{document}
 \printDoorsign

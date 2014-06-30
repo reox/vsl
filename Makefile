@@ -9,7 +9,7 @@ check_dirs:
 	[ -d ${OUTPUT_DIR_ROOMS} ] ||  mkdir ${OUTPUT_DIR_ROOMS}
 
 gen_rooms:
-	room_gen.sh
+	./room_gen.sh
 
 merge_pdf:
 	pdftk ${PDF_FILES_ROOMS} cat output all_rooms.pdf

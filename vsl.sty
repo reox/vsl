@@ -11,7 +11,6 @@
 \usepackage{graphicx}
 \usepackage{eso-pic}
 \usepackage{color}
-\usepackage[top=10mm, bottom=0mm, left=0mm, right=0mm, landscape]{geometry}
 
 \pagestyle{empty}
 
@@ -19,11 +18,16 @@
 \setmainfont{PT Sans}
 
 \definecolor{vslblue}{HTML}{162d59}
+\definecolor{areayellow}{HTML}{FDBC42}
+\definecolor{areared}{HTML}{B6321C}
+\definecolor{areagreen}{HTML}{3C8031}
 
 \newcommand\Room{This is the Room}
 \newcommand\Event{AABD}
 \newcommand\Area{Stiege III}
 \newcommand\Floor{3rd Floor}
+\newcommand\Date{01.01.1970}
+
 
 
 % Print a Sign with Eventname, Room, Floor and Area
@@ -91,6 +95,29 @@
 \newcommand\printLiftsign{
     % TODO
 }
+
+% Print the header of a Event Poster for the Freihaus
+\newcommand\printVSLEventHeader{
+
+    \noindent\makebox[\textwidth][l]{
+        \includegraphics[width=8cm,height=8cm,keepaspectratio]{VSL_logo_big.png}
+        {\fontsize{3cm}{3cm}\selectfont \textbf{\color{vslblue}{\Date}}}
+    }
+
+}
+
+\newenvironment{vsltext}[1]
+{
+    \fontsize{#1}{#1}
+    \selectfont
+}
+{
+    \normalsize
+}
+
+\newcommand\AreaA{A, \color{areagreen}{\textbf{Green}}}
+\newcommand\AreaB{B, \color{areayellow}{\textbf{Yellow}}}
+\newcommand\AreaC{C, \color{areared}{\textbf{Red}}}
 
 
 \endinput
