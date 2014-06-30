@@ -12,7 +12,7 @@ gen_rooms:
 	room_gen.sh
 
 merge_pdf:
-	convert ${PDF_FILES_ROOMS} all_rooms.pdf
+	pdftk ${PDF_FILES_ROOMS} cat output all_rooms.pdf
 
 ${OUTPUT_DIR_ROOMS}/%.pdf: rooms/%.tex
 	xelatex -output-directory=${OUTPUT_DIR_ROOMS} $<
