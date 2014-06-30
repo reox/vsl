@@ -26,8 +26,6 @@
 \newcommand\Event{AABD}
 \newcommand\Area{Stiege III}
 \newcommand\Floor{3rd Floor}
-\newcommand\Date{01.01.1970}
-
 
 
 % Print a Sign with Eventname, Room, Floor and Area
@@ -97,11 +95,11 @@
 }
 
 % Print the header of a Event Poster for the Freihaus
-\newcommand\printVSLEventHeader{
+\newcommand\printVSLEventHeader[1]{
 
     \noindent\makebox[\textwidth][l]{
         \includegraphics[width=8cm,height=8cm,keepaspectratio]{VSL_logo_big.png}
-        {\fontsize{3cm}{3cm}\selectfont \textbf{\color{vslblue}{\Date}}}
+        {\fontsize{3cm}{3cm}\selectfont \textbf{\color{vslblue}{#1}}}
     }
 
 }
