@@ -5,7 +5,6 @@
 \ProvidesPackage{vsl}
 \NeedsTeXFormat{LaTeX2e}
 
-\usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
 \usepackage{amsmath}
 \usepackage{graphicx}
@@ -104,9 +103,9 @@
 
 }
 
-\newenvironment{vsltext}[1]
+\newenvironment{vsltext}[2]
 {
-    \fontsize{#1}{#1}
+    \fontsize{#1}{#2}
     \selectfont
 }
 {
@@ -116,6 +115,8 @@
 \newcommand\AreaA{A, \color{areagreen}{\textbf{Green}}}
 \newcommand\AreaB{B, \color{areayellow}{\textbf{Yellow}}}
 \newcommand\AreaC{C, \color{areared}{\textbf{Red}}}
+
+\newcommand\FN[1]{\rule{0pt}{1.9cm}\textbf{\fontsize{1.8cm}{2.2cm}\selectfont #1 }}
 
 
 \endinput
