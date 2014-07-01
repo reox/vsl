@@ -1,0 +1,49 @@
+% Sign for the Lift: Shows Floors and Events
+\documentclass{article}
+
+\usepackage[a3paper, top=10mm, bottom=0mm, left=0mm, right=0mm]{geometry}
+\usepackage{vsl}
+\usepackage{tabularx}
+\usepackage{multirow}
+
+\begin{document}
+\printVSLEventHeader{Workshops}{Area \AreaB}
+
+\vspace{1cm}
+
+\begin{vsltext}{1.1cm}{1.3cm}
+\begin{center}
+\begin{tabularx}{0.7\textwidth}{ X l }
+    \textbf{Floor} & \textbf{Event} \\
+    \FN{10} & LINEARITY \\
+    \hline
+    \FN{9} & Isabelle \\
+    \hline
+    \FN{8} & \\
+    \hline
+    \FN{7} & \\
+    \hline
+    \FN{6} & \\
+    \hline
+    \multirow{2}{*}{\FN{5}} & LSB \\
+& FWFM \\
+    \hline
+    \multirow{2}{*}{\FN{4}} & IWC \\
+& DTP \\
+    \hline
+    \FN{3} & TERMGRAPH \\
+    \hline
+    \multirow{4}{*}{\FN{2}} & WPTE \\
+& QBF \\
+& POS \\
+& ACL2 \\
+    \hline
+    \FN{1} & \\
+    \hline
+    \FN{EG} & \\
+\end{tabularx}
+\end{center}
+\end{vsltext}
+
+
+\end{document}

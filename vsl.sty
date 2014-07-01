@@ -94,11 +94,16 @@
 }
 
 % Print the header of a Event Poster for the Freihaus
-\newcommand\printVSLEventHeader[1]{
+\newcommand\printVSLEventHeader[2]{
 
     \noindent\makebox[\textwidth][l]{
-        \includegraphics[width=8cm,height=8cm,keepaspectratio]{VSL_logo_big.png}
-        {\fontsize{3cm}{3cm}\selectfont \textbf{\color{vslblue}{#1}}}
+        \includegraphics[width=6cm,height=6cm,keepaspectratio]{VSL_logo_big.png}
+        \hspace{2cm}
+            \noindent\parbox[b][][b]{0.6\textwidth}{
+        {\fontsize{2.8cm}{3cm}\selectfont \textbf{\color{vslblue}{#1}}}
+        \\
+        {\fontsize{2.8cm}{3cm}\selectfont \textbf{\color{vslblue}{#2}}}
+        }
     }
 
 }
