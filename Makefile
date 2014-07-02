@@ -11,9 +11,16 @@
 SUB_MAKEFILES = $(wildcard src/*/Makefile)
 DIRS = $(SUB_MAKEFILES:%/Makefile=%)
 DIRS_CMD  =$(foreach subdir, $(DIRS), make-rule/$(subdir))
+DIRS_CMD_CLEAN  =$(foreach subdir, $(DIRS), make-rule-clean/$(subdir))
 
 # this psuedo make rule is necessary to build everything correctly
 make-rule/%:
 	cd $* && $(MAKE)
 
+make-rule-clean/%:
+	cd $* && $(MAKE) clean
+
 all: ${DIRS_CMD}
+
+clean: ${DIRS_CMD_CLEAN}
+
