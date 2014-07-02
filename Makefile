@@ -8,13 +8,12 @@
 
 # DIRS contains a list of src dirs, that can be compiled into pdfs
 # Each dir that contains compileable stuff need to have its own makefile
-DIRS =$(filter %/, $(wildcard src/*/))
-LIB_DIRS  =$(DIRS:%/=%)
-DIRS_CMD  =$(foreach subdir, $(LIB_DIRS), make-rule/$(subdir))
+SUB_MAKEFILES = $(wildcard src/*/Makefile)
+DIRS = $(SUB_MAKEFILES:%/Makefile=%)
+DIRS_CMD  =$(foreach subdir, $(DIRS), make-rule/$(subdir))
 
 # this psuedo make rule is necessary to build everything correctly
 make-rule/%:
-	@echo "making rule"
 	cd $* && $(MAKE)
 
 all: ${DIRS_CMD}
