@@ -1,22 +1,20 @@
-OUTPUT_DIR_ROOMS=out_rooms
+### hint hint hint
+# $@ is the target file
+# $< is the input file
+# see also here:
+# http://www.gnu.org/software/make/manual/make.html#Automatic-Variables
+# rules are based on target: source; receipe
+#
 
-TEX_FILES_ROOMS := $(wildcard rooms/*.tex)
-PDF_FILES_ROOMS := $(addprefix ${OUTPUT_DIR_ROOMS}/,$(notdir $(TEX_FILES_ROOMS:.tex=.pdf)))
+# DIRS contains a list of src dirs, that can be compiled into pdfs
+# Each dir that contains compileable stuff need to have its own makefile
+DIRS =$(filter %/, $(wildcard src/*/))
+LIB_DIRS  =$(DIRS:%/=%)
+DIRS_CMD  =$(foreach subdir, $(LIB_DIRS), make-rule/$(subdir))
 
-all: gen_rooms ${PDF_FILES_ROOMS} merge_pdf
+# this psuedo make rule is necessary to build everything correctly
+make-rule/%:
+	@echo "making rule"
+	cd $* && $(MAKE)
 
-check_dirs:
-	[ -d ${OUTPUT_DIR_ROOMS} ] ||  mkdir ${OUTPUT_DIR_ROOMS}
-
-gen_rooms:
-	./room_gen.sh
-
-merge_pdf:
-	pdftk ${PDF_FILES_ROOMS} cat output all_rooms.pdf
-
-${OUTPUT_DIR_ROOMS}/%.pdf: rooms/%.tex
-	xelatex -output-directory=${OUTPUT_DIR_ROOMS} $<
-
-.PHONY : clean check_dirs rem_auxlog
-clean:
-	rm ${PDF_FILES_ROOMS}
+all: ${DIRS_CMD}
