@@ -26,6 +26,11 @@
 \newcommand\Area{Stiege III}
 \newcommand\Floor{3rd Floor}
 
+\newlength\tindent
+\setlength{\tindent}{\parindent}
+\setlength{\parindent}{0pt}
+\renewcommand{\indent}{\hspace*{\tindent}}
+
 
 % Print a Sign with Eventname, Room, Floor and Area
 \newcommand\printVSL[1][Area]{
