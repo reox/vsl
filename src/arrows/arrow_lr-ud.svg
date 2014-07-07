@@ -9,14 +9,14 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="744.09448819"
-   height="1052.3622047"
-   id="svg4072"
+   width="744.09448"
+   height="1052.3622"
+   id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="New document 18">
+   sodipodi:docname="all_arrows_test.svg">
   <defs
-     id="defs4074" />
+     id="defs4" />
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -24,19 +24,28 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
-     inkscape:cx="249.82431"
-     inkscape:cy="501.9301"
+     inkscape:zoom="0.59887989"
+     inkscape:cx="699.03066"
+     inkscape:cy="487.26707"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
-     showgrid="false"
+     showgrid="true"
      inkscape:window-width="1918"
      inkscape:window-height="1040"
      inkscape:window-x="0"
      inkscape:window-y="19"
-     inkscape:window-maximized="1" />
+     inkscape:window-maximized="1"
+     units="mm">
+    <inkscape:grid
+       type="xygrid"
+       id="grid2985"
+       empspacing="5"
+       visible="true"
+       enabled="true"
+       snapvisiblegridlinesonly="true" />
+  </sodipodi:namedview>
   <metadata
-     id="metadata4077">
+     id="metadata7">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
@@ -50,35 +59,36 @@
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
-     id="layer1">
+     id="layer1"
+     transform="translate(0,-2.5390623e-6)">
     <path
        style="fill:#000000;fill-opacity:1;stroke:none"
-       d="M 389.76378,70.866158 532.17754,135.59963 506.28403,161.493 726.37795,381.58685 700.48444,407.48025 480.39052,187.3864 454.49737,213.2798 z"
-       id="path2987-1-3"
+       d="m 35.43306,657.72636 215.43308,-80.7874 0,53.85827 457.79528,0 0,53.85826 -457.79528,0 0,53.85827 z"
+       id="path2987"
        inkscape:connector-curvature="0"
        inkscape:export-filename="/home/reox/git/tuwien/vsl/test-arrow.png"
        inkscape:export-xdpi="300.01889"
        inkscape:export-ydpi="300.01889" />
     <path
        style="fill:#000000;fill-opacity:1;stroke:none"
-       d="m 354.33071,70.866158 -142.41376,64.733482 25.89351,25.8934 -220.093925,220.09385 25.89351,25.8934 220.093935,-220.09385 25.89314,25.8934 z"
-       id="path2987-1-3-4"
+       d="m 35.433066,920.81686 215.433074,-80.78742 0,53.85827 457.79528,0 0,53.85825 -457.79528,0 0,53.85834 z"
+       id="path2987-8"
        inkscape:connector-curvature="0"
        inkscape:export-filename="/home/reox/git/tuwien/vsl/test-arrow.png"
        inkscape:export-xdpi="300.01889"
        inkscape:export-ydpi="300.01889" />
     <path
        style="fill:#000000;fill-opacity:1;stroke:none"
-       d="m 389.76378,644.88192 142.41376,64.73348 -25.89351,25.89337 220.09392,220.09387 -25.8935,25.8934 -220.09393,-220.09387 -25.89315,25.8934 z"
-       id="path2987-1-3-0"
+       d="m 35.433062,131.54526 215.433078,-80.787405 0,53.858275 457.79528,0 0,53.85825 -457.79528,0 0,53.85827 z"
+       id="path2987-6"
        inkscape:connector-curvature="0"
        inkscape:export-filename="/home/reox/git/tuwien/vsl/test-arrow.png"
        inkscape:export-xdpi="300.01889"
        inkscape:export-ydpi="300.01889" />
     <path
        style="fill:#000000;fill-opacity:1;stroke:none"
-       d="m 354.3307,644.88188 -142.41376,64.73349 25.89351,25.8934 -220.093915,220.09387 25.89351,25.8934 220.093925,-220.09387 25.89314,25.8934 z"
-       id="path2987-1-3-4-2"
+       d="m 35.433086,394.6358 215.433084,-80.7874 0,53.85827 457.79523,0 0,53.85826 -457.79523,0 0,53.85827 z"
+       id="path2987-80"
        inkscape:connector-curvature="0"
        inkscape:export-filename="/home/reox/git/tuwien/vsl/test-arrow.png"
        inkscape:export-xdpi="300.01889"

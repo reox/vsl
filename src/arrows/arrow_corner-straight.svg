@@ -11,12 +11,12 @@
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="744.09448819"
    height="1052.3622047"
-   id="svg4072"
+   id="svg4269"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="New document 18">
+   sodipodi:docname="New document 27">
   <defs
-     id="defs4074" />
+     id="defs4271" />
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -25,8 +25,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
-     inkscape:cx="249.82431"
-     inkscape:cy="501.9301"
+     inkscape:cx="678.58704"
+     inkscape:cy="498.80086"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -36,7 +36,7 @@
      inkscape:window-y="19"
      inkscape:window-maximized="1" />
   <metadata
-     id="metadata4077">
+     id="metadata4274">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
@@ -53,33 +53,37 @@
      id="layer1">
     <path
        style="fill:#000000;fill-opacity:1;stroke:none"
-       d="M 389.76378,70.866158 532.17754,135.59963 506.28403,161.493 726.37795,381.58685 700.48444,407.48025 480.39052,187.3864 454.49737,213.2798 z"
-       id="path2987-1-3"
+       d="m 599.41295,77.952725 40.3937,107.716565 -26.92913,0 0,228.89762 -26.92913,0 -134.64566,0 0,-26.92913 134.64566,0 0,-201.96849 -26.92913,0 z"
+       id="path2987-1-5"
        inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccccccc"
        inkscape:export-filename="/home/reox/git/tuwien/vsl/test-arrow.png"
        inkscape:export-xdpi="300.01889"
        inkscape:export-ydpi="300.01889" />
     <path
        style="fill:#000000;fill-opacity:1;stroke:none"
-       d="m 354.33071,70.866158 -142.41376,64.733482 25.89351,25.8934 -220.093925,220.09385 25.89351,25.8934 220.093935,-220.09385 25.89314,25.8934 z"
-       id="path2987-1-3-4"
+       d="m 118.74276,77.952735 -40.393703,107.716515 26.929133,0 0,228.89766 26.9291,0 134.64572,0 0,-26.92916 -134.64572,0 0,-201.9685 26.92916,0 z"
+       id="path2987-1-5-4"
        inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccccccc"
        inkscape:export-filename="/home/reox/git/tuwien/vsl/test-arrow.png"
        inkscape:export-xdpi="300.01889"
        inkscape:export-ydpi="300.01889" />
     <path
        style="fill:#000000;fill-opacity:1;stroke:none"
-       d="m 389.76378,644.88192 142.41376,64.73348 -25.89351,25.89337 220.09392,220.09387 -25.8935,25.8934 -220.09393,-220.09387 -25.89315,25.8934 z"
-       id="path2987-1-3-0"
+       d="m 599.40641,574.01571 40.3937,107.71657 -26.92913,0 0,228.89762 -26.92913,0 -134.64566,0 0,-26.92913 134.64566,0 0,-201.96849 -26.92913,0 z"
+       id="path2987-1-5-41"
        inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccccccc"
        inkscape:export-filename="/home/reox/git/tuwien/vsl/test-arrow.png"
        inkscape:export-xdpi="300.01889"
        inkscape:export-ydpi="300.01889" />
     <path
        style="fill:#000000;fill-opacity:1;stroke:none"
-       d="m 354.3307,644.88188 -142.41376,64.73349 25.89351,25.8934 -220.093915,220.09387 25.89351,25.8934 220.093925,-220.09387 25.89314,25.8934 z"
-       id="path2987-1-3-4-2"
+       d="m 118.73622,574.01572 -40.3937,107.71652 26.92913,0 0,228.89766 26.9291,0 134.64572,0 0,-26.92917 -134.64572,0 0,-201.9685 26.92916,0 z"
+       id="path2987-1-5-4-3"
        inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccccccc"
        inkscape:export-filename="/home/reox/git/tuwien/vsl/test-arrow.png"
        inkscape:export-xdpi="300.01889"
        inkscape:export-ydpi="300.01889" />
