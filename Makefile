@@ -20,7 +20,18 @@ make-rule/%:
 make-rule-clean/%:
 	cd $* && $(MAKE) clean
 
+ROOMS_TEX = $(wildcard rooms/*.tex)
+ROOMS_TEX_NAMES = $(ROOMS_TEX:rooms/%=%)
+ROOMS_PDF = $(foreach outdir, $(ROOMS_TEX_NAMES:.tex=.pdf), out_rooms/$(outdir))
+
+all_rooms.pdf: ${ROOMS_PDF}
+	pdftk $^ cat output $@
+
+out_rooms/%.pdf: rooms/%.tex
+	latexmk -pdflatex=lualatex -pdf -output-directory=$(@D) $<
+
 all: ${DIRS_CMD}
 
 clean: ${DIRS_CMD_CLEAN}
-
+	rm all_rooms.pdf
+	rm out_rooms/*
