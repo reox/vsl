@@ -1,0 +1,23 @@
+\documentclass[a4paper]{minimal}
+\usepackage{tikz}
+\usepackage{vsl}
+\usepgflibrary{shapes}
+\usepackage[top=10mm, bottom=0mm, left=0mm, right=0mm, landscape]{geometry}
+\begin{document}
+
+\begin{center}
+\includegraphics[width=0.8\textwidth, keepaspectratio=true]{main_building_plan.pdf}
+
+\hspace{0.5cm}
+
+\begin{vsltext}{0.5cm}{0.8cm}
+\begin{tikzpicture}
+    \draw[red] (10,0) circle (0.25cm);
+\end{tikzpicture}
+\hspace{0.25cm}
+\raisebox{0.25ex}{You are here}
+\end{vsltext}
+\end{center}
+
+
+\end{document}

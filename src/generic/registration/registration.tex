@@ -1,17 +1,9 @@
+% Use the door sign layout for the registration type
+
 \documentclass[a4paper]{article}
 \usepackage{vsl}
-\usepackage[top=10mm, bottom=0mm, left=0mm, right=0mm, landscape]{geometry}
+\usepackage[top=10mm, bottom=0mm, left=5mm, right=5mm, landscape]{geometry}
+\renewcommand\Room{Registration}
 \begin{document}
-\printVSLEventHeader{Vienna Summer}{of Logic}
-\begin{center}
-\begin{vsltext}{4cm}{3.5cm}
-    
-    \vspace{3cm}
-
-    \noindent\makebox[\textwidth][c]{\textbf{Registration}}
-\end{vsltext}
-
-\end{center}
-
+\printDoorsign
 \end{document}
-
