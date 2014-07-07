@@ -35,3 +35,6 @@ all: ${DIRS_CMD}
 clean: ${DIRS_CMD_CLEAN}
 	rm all_rooms.pdf
 	rm out_rooms/*
+
+test.pdf: all
+	pdftk $(wildcard src/*/out/*/*.pdf) cat output $@

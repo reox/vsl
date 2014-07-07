@@ -35,10 +35,10 @@
 % Print a Sign with Eventname, Room, Floor and Area
 \newcommand\printVSL[1][Area]{
     
-    \noindent\makebox[0.9\textwidth][c]{
-        \includegraphics[width=3.5cm,height=3.5cm,keepaspectratio]{VSL_logo_big.png}
+    \makebox[\textwidth][c]{
+        \includegraphics[height=4cm,keepaspectratio]{VSL_logo_big.png}
         \hspace{0.5cm}
-        {\fontsize{3cm}{3.5cm}\selectfont \textbf{\color{vslblue}\raisebox{0.5ex}{\Event}}}
+        \raggedleft{\fontsize{3cm}{3.4cm}\selectfont\color{vslblue}\textbf{\raisebox{0.5ex}{\Event}}}
     }
 
     \vspace{1.5cm}
@@ -79,11 +79,11 @@
 }
 % Print a Sign with Eventname and Room
 \newcommand\printVSLShort{
-    
-    \noindent\makebox[\textwidth][l]{
-        \includegraphics[width=3.5cm,height=3.5cm,keepaspectratio]{VSL_logo_big.png}
+
+    \makebox[\textwidth][c]{
+        \includegraphics[height=4cm,keepaspectratio]{VSL_logo_big.png}
         \hspace{0.5cm}
-        {\fontsize{3cm}{3.5cm}\selectfont \textbf{\color{vslblue}\raisebox{0.5ex}{\Event}}}
+        \raggedleft{\fontsize{3cm}{3.4cm}\selectfont\color{vslblue}\textbf{\raisebox{0.5ex}{\Event}}}
     }
 
     \vspace{1.5cm}
@@ -124,15 +124,17 @@
 % Print the header of a Event Poster for the Freihaus
 \newcommand\printVSLEventHeader[2]{
 
-    \noindent\makebox[\textwidth][l]{
-        \includegraphics[width=6cm,height=6cm,keepaspectratio]{VSL_logo_big.png}
+    \makebox[\textwidth][c]{
+        \includegraphics[height=4cm,keepaspectratio]{VSL_logo_big.png}
         \hspace{2cm}
-            \noindent\parbox[b][][b]{0.7\textwidth}{
+        \parbox[b][][b]{0.7\textwidth}{
+
         {\fontsize{2.8cm}{3cm}\selectfont \textbf{\color{vslblue}{#1}}}
         
         \vspace{0.5cm}
 
         {\fontsize{2.8cm}{3cm}\selectfont \textbf{\color{vslblue}{#2}}}
+
         }
     }
 
