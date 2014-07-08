@@ -8,7 +8,7 @@ from collections import defaultdict
 class MyHTMLParser(HTMLParser):
     """
     In this parser we need to implement a litle statemachine, 
-    that parses the right 
+    that parses the right stuff from the HTML File 
     """
 
     def __init__(self):
@@ -85,6 +85,7 @@ def main():
     # Events that are called VSL go out.
     # every room begins with the building code
     # we have some events with 'and'
+    # some special cases (selection...)
     # joint session of 10 meetings
     #  EI, EI 7 + EI 9, EI 10 + FH, Hörsaal 1
     #   ARW-DT, VERIFY  and WING
