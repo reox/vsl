@@ -100,11 +100,13 @@
 }
 
 % this is a header that just contains the Logo and  VSL
-\newcommand\printGenericVSLHeader{
-    \makebox[\textwidth][c]{
+\newcommand\printGenericVSLHeader[1][Vienna Summer of Logic]{
+
+    \makebox[\textwidth][l]{
+        \hspace{1cm}
         \includegraphics[height=4cm,keepaspectratio]{VSL_logo_big.png}
         \hspace{0.5cm}
-        {\fontsize{2cm}{2.4cm}\selectfont\color{vslblue}\raisebox{1ex}{Vienna Summer of Logic}}
+        {\fontsize{2cm}{2.4cm}\selectfont\color{vslblue}\raisebox{1ex}{#1}}
     }
 }
 
@@ -115,7 +117,7 @@
     \vspace{5cm}
 
     \makebox[\textwidth][c]{
-        {\fontsize{3cm}{3cm}\selectfont\Room}
+        {\fontsize{3cm}{3cm}\selectfont\textbf{\Room}}
     }
 
 }
@@ -125,7 +127,7 @@
 \newcommand\printVSLEventHeader[2]{
 
     \makebox[\textwidth][c]{
-        \includegraphics[height=4cm,keepaspectratio]{VSL_logo_big.png}
+        \includegraphics[height=5cm,keepaspectratio]{VSL_logo_big.png}
         \hspace{2cm}
         \parbox[b][][b]{0.7\textwidth}{
 

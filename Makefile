@@ -25,7 +25,7 @@ ROOMS_TEX_NAMES = $(ROOMS_TEX:rooms/%=%)
 ROOMS_PDF = $(foreach outdir, $(ROOMS_TEX_NAMES:.tex=.pdf), out_rooms/$(outdir))
 
 all_rooms.pdf: ${ROOMS_PDF}
-	pdftk $^ cat output $@
+	pdftk $(sort $^) cat output $@
 
 out_rooms/%.pdf: rooms/%.tex
 	latexmk -pdflatex=lualatex -pdf -output-directory=$(@D) $<
