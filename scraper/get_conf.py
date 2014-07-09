@@ -92,6 +92,10 @@ def main():
     remove_title = ['VSL', 'INFINITY']
     remove_place = ['Naturhistorisches Museum', 'Schönbrunn', 'FH, 2nd floor']
     replace_place = {'FH, Dissertantenraum E104': 'FH, Dissertantenraum'}
+    replace_event = {'LC': 'Logic Colloquium'}
+
+    remove_conference = ['CAV', 'CSL-LICS', 'CSF', 'ICLP', 'IJCAR', 'ITP',
+            'RTA-TLCA', 'SAT', 'KR', 'LATD']
 
     date_matcher = re.compile("[A-Za-z, ]+([0-9]{1,2})[a-z]+")
     all_events = {}
@@ -102,6 +106,8 @@ def main():
             if x not in remove_title and y not in remove_place:
                 if y in replace_place:
                     y = replace_place[y]
+                if x in replace_event:
+                    x = replace_event[x]
 
                 # now we need to replace the area and room:
                 if ',' in y:
@@ -128,6 +134,8 @@ def main():
     print("Generate Event Lists for FH")
     event_list_raw = open("templates/fh_events.tex.tmpl", "r").read()
     for date, events in all_events.items():
+        if date not in ['12', '13', '14', '15']:
+            continue
         event_list = event_list_raw
         event_list = event_list.replace("$$date$$", date)
         table = "\n".join("%s & %s & %s \\\\" % (event, room_lookup[('FH', room)][0],
@@ -139,9 +147,11 @@ def main():
             print("\twritten", f.name)
 
     # generate lift signs
-    print("Generate Lift Signs for FH")
+    print("Generate Lift Signs for FH (Workshops)")
     lift_sign_raw = open("templates/fh_lift.tex.tmpl", "r").read()
     for date, events in all_events.items():
+        if date not in ['12', '13', '14', '15'] and x not in remove_conference:
+            continue
         area_signs = defaultdict(lambda: defaultdict(list))
         
         for event, room in events['FH']:
@@ -151,7 +161,7 @@ def main():
 
         for area in area_signs.keys():
             workshops = ""
-            for floor in range(1,11)[::-1]:
+            for floor in list(range(1,11)[::-1]) + ['EG']:
                 eventlist = ""
                 if floor == 2:
                     eventlist += "\\Coffee{1.5cm} "
@@ -161,8 +171,8 @@ def main():
                         eventlist += "(Area \\AreaC) "
                 if str(floor) in area_signs[area]:
                     eventlist += ", ".join(sorted(set(area_signs[area][str(floor)])))
-                workshops += "\\FN{%d} & %s \\\\\n" % (floor, eventlist)
-                if floor != 1:
+                workshops += "\\FN{%s} & %s \\\\\n" % (str(floor), eventlist)
+                if floor != 'EG':
                     workshops += "\\hline\n"
             sign = lift_sign_raw.replace("$$area$$",
                     area).replace("$$workshops$$", workshops)
@@ -174,6 +184,8 @@ def main():
     print("generate epsilon signs for FH")
     fh_epsilon_raw = open("templates/fh_epsilon.tex.tmpl", "r").read()
     for date, events in all_events.items():
+        if date not in ['12', '13', '14', '15'] and x not in remove_conference:
+            continue
         for event, room in events['FH']:
             sign = fh_epsilon_raw.replace("$$event$$", event).replace("$$room$$",
             room)
@@ -186,8 +198,12 @@ def main():
     print("generate epsilon signs for MB")
     fh_epsilon_raw = open("templates/mb_epsilon.tex.tmpl", "r").read()
     for date, events in all_events.items():
+        if date not in ['12', '13', '14', '15']:
+            continue
         for event, room in events['MB']:
             area, floor = room_lookup[('MB', room)]
+            if floor != 'EG':
+                floor = '0' + floor
 
             sign = fh_epsilon_raw.replace("$$event$$", event).replace("$$room$$",
             room).replace("$$area$$", area).replace("$$floor$$", floor)
