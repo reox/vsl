@@ -1,2 +1,7 @@
 log
 src/*/out/
+src/arrows/*.pdf
+dev/
+sample_img/
+test.pdf
+all_rooms.pdf
