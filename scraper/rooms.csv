@@ -1,0 +1,60 @@
+FH,Hörsaal 1,\AreaC,1
+FH,Hörsaal 5,\AreaA,2
+FH,Hörsaal 6,\AreaA,2
+FH,Hörsaal 8,\AreaB,2
+FH,Hörsaal 2,\AreaB,2
+FH,Hörsaal 4,\AreaB,2
+FH,Hörsaal 3,\AreaB,2
+FH,Hörsaal 7,\AreaB,2
+FH,Seminarraum 101A,\AreaA,3
+FH,Seminarraum 101B,\AreaA,3
+FH,Seminarraum 325/2,\AreaB,3
+FH,Seminarraum 101C,\AreaA,4
+FH,Seminarraum 303,\AreaB,4
+FH,Seminarraum 325/1,\AreaB,4
+FH,Seminarraum 104,\AreaA,5
+FH,Kleiner Seminarraum,\AreaA,5
+FH,Besprechungszimmer,\AreaA,5
+FH,Seminarraum 134,\AreaB,5
+FH,Seminarraum 134A,\AreaB,5
+FH,Seminarraum 107,\AreaA,6
+FH,CAD 2,\AreaA,7
+FH,Zeichensaal 3,\AreaA,7
+FH,Seminarraum 138A,\AreaB,7
+FH,Seminarraum 138B,\AreaC,7
+FH,CAD 1,\AreaA,8
+FH,Zeichensaal 1,\AreaA,8
+FH,Dissertantenraum,\AreaA,8
+FH,Seminarraum 138C,\AreaB,9
+FH,Seminarraum 136,\AreaB,10
+None,Seminarraum 1/3 OPG,2,3
+MB,Prechtlsaal,1,EG
+MB,Festsaal,1,1
+MB,Seminarraum Kuppel,1,4
+MB,Kuppelsaal,1,4
+MB,Zeichensaal 15,1,3
+MB,Seminarraum 212/232,2,3
+MB,Hörsaal 15,3,3
+MB,Hörsaal 14,3,3
+MB,Hörsaal 14A,3,3
+MB,GUT Schulungsraum,4a,EG
+MB,Zeichensaal 13,4,1
+MB,Zeichensaal 14,4,1
+MB,Seminarraum 225,5,2
+MB,Hörsaal 12,6,2
+MB,Seminarraum 2,6,4
+MB,Seminarraum 3,6,4
+MB,Seminarraum 4,6,4
+MB,Seminarraum 5,6,4
+MB,Seminarraum 6,6,4
+MB,Seminarraum 7,6,4
+MB,Hörsaal 7,7,EG
+MB,Aufbaulabor,7,1
+MB,Hörsaal 4,Hof 1,EG
+EI,EI 7,CD,EG
+EI,EI 8,CD,EG
+EI,EI 9,CA,EG
+EI,EI 10,CA,EG
+EI,Kontaktraum,CD,6
+EI,Seminarraum 124,CB,3
+EI,Seminarraum 121,CA,3
