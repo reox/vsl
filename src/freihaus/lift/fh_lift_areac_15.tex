@@ -1,0 +1,45 @@
+% Sign for the Lift: Shows Floors and Events
+\documentclass{article}
+
+\usepackage[a3paper, top=15mm, bottom=0mm, left=0mm, right=0mm]{geometry}
+\usepackage{vsl}
+\usepackage{tabularx}
+\usepackage{multirow}
+
+\begin{document}
+\printVSLEventHeader{Workshops}{Area \AreaC}
+
+\vspace{1cm}
+
+\begin{vsltext}{1.1cm}{1.3cm}
+\begin{center}
+\begin{tabularx}{0.6\textwidth}{ l X }
+    \textbf{Floor} & \textbf{Event} \\
+    \FN{10} &  \\
+\hline
+\FN{9} &  \\
+\hline
+\FN{8} &  \\
+\hline
+\FN{7} &  \\
+\hline
+\FN{6} &  \\
+\hline
+\FN{5} &  \\
+\hline
+\FN{4} &  \\
+\hline
+\FN{3} &  \\
+\hline
+\FN{2} & \Coffee{1.5cm}  \\
+\hline
+\FN{1} & \textbf{Registration/Help} CSL-LICS, FLoC Plenary Talk \\
+\hline
+\FN{EG} &  \\
+
+\end{tabularx}
+\end{center}
+\end{vsltext}
+
+
+\end{document}
