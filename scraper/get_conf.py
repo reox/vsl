@@ -125,6 +125,7 @@ def main():
 
     # now generate the signs...
     # generate event signs for FH: 
+    print("Generate Event Lists for FH")
     event_list_raw = open("templates/fh_events.tex.tmpl", "r").read()
     for date, events in all_events.items():
         event_list = event_list_raw
@@ -133,9 +134,74 @@ def main():
             room_lookup[('FH', room)][1]) for event, room in sorted(events['FH']))
         event_list = event_list.replace("$$events$$", table)
         
-        with open("out/fh_event_%s.tex" % date, "w+") as f:
+        with open("../src/freihaus/eventplan/fh_event_%s.tex" % date, "w+") as f:
             f.write(event_list)
+            print("\twritten", f.name)
 
+    # generate lift signs
+    print("Generate Lift Signs for FH")
+    lift_sign_raw = open("templates/fh_lift.tex.tmpl", "r").read()
+    for date, events in all_events.items():
+        area_signs = defaultdict(lambda: defaultdict(list))
+        
+        for event, room in events['FH']:
+            area, floor = room_lookup[('FH', room)]
+            if event not in area_signs[area][floor]: 
+                area_signs[area][floor].append(event)
+
+        for area in area_signs.keys():
+            workshops = ""
+            for floor in range(1,11)[::-1]:
+                eventlist = ""
+                if floor == 2:
+                    eventlist += "\\Coffee{1.5cm} "
+                if floor == 1:
+                    eventlist += "\\textbf{Registration/Help} "
+                    if area != '\\AreaC':
+                        eventlist += "(Area \\AreaC) "
+                if str(floor) in area_signs[area]:
+                    eventlist += ", ".join(sorted(set(area_signs[area][str(floor)])))
+                workshops += "\\FN{%d} & %s \\\\\n" % (floor, eventlist)
+                if floor != 1:
+                    workshops += "\\hline\n"
+            sign = lift_sign_raw.replace("$$area$$",
+                    area).replace("$$workshops$$", workshops)
+            with open("../src/freihaus/lift/fh_lift_%s_%s.tex" %
+                    (area.replace('\\', '').lower(), date), "w+") as f:
+                f.write(sign)
+                print("\twritten", f.name)
+
+    print("generate epsilon signs for FH")
+    fh_epsilon_raw = open("templates/fh_epsilon.tex.tmpl", "r").read()
+    for date, events in all_events.items():
+        for event, room in events['FH']:
+            sign = fh_epsilon_raw.replace("$$event$$", event).replace("$$room$$",
+            room)
+            with open("../src/freihaus/event/event_%s_%s.tex" %
+            (event.replace(", ", "").lower(),
+                room.replace(" ", "").replace("/", "").lower()), "w+") as f:
+                f.write(sign)
+                print("\twritten", f.name)
+
+    print("generate epsilon signs for MB")
+    fh_epsilon_raw = open("templates/mb_epsilon.tex.tmpl", "r").read()
+    for date, events in all_events.items():
+        for event, room in events['MB']:
+            area, floor = room_lookup[('MB', room)]
+
+            sign = fh_epsilon_raw.replace("$$event$$", event).replace("$$room$$",
+            room).replace("$$area$$", area).replace("$$floor$$", floor)
+            with open("../src/hauptgebaeude/event/event_%s_%s.tex" %
+            (event.replace(", ", "").lower(),
+                room.replace(" ", "").replace("/", "").lower()), "w+") as f:
+                f.write(sign)
+                print("\twritten", f.name)
+
+
+            
+# \FN{floor}
+# \Coffee{1.5cm}
+# \textbf{Registration/Help} (Area \AreaC)
 
 if __name__ == "__main__":
     main()
