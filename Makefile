@@ -30,11 +30,12 @@ all_rooms.pdf: ${ROOMS_PDF}
 out_rooms/%.pdf: rooms/%.tex
 	latexmk -pdflatex=lualatex -pdf -output-directory=$(@D) $<
 
-all: ${DIRS_CMD}
-
 clean: ${DIRS_CMD_CLEAN}
 	rm all_rooms.pdf
 	rm out_rooms/*
+	rm test.pdf
 
-test.pdf: all
+test.pdf: ${DIRS_CMD}
 	pdftk $(wildcard src/*/out/*/*.pdf) cat output $@
+
+all: all_rooms.pdf test.pdf

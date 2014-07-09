@@ -178,7 +178,7 @@ def main():
             sign = fh_epsilon_raw.replace("$$event$$", event).replace("$$room$$",
             room)
             with open("../src/freihaus/event/event_%s_%s.tex" %
-            (event.replace(", ", "").lower(),
+            (event.replace(", ", "").replace(" ", "").lower(),
                 room.replace(" ", "").replace("/", "").lower()), "w+") as f:
                 f.write(sign)
                 print("\twritten", f.name)
