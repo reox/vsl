@@ -162,7 +162,7 @@ def main():
             print("\twritten", f.name)
 
     # generate lift signs
-    print("Generate Lift Signs for FH (Workshops)")
+    print("Generate Lift Signs for FH (Workshops + Conferences)")
     lift_sign_raw = open("templates/fh_lift.tex.tmpl", "r").read()
     for date, events in all_events_single.items():
         if date not in ['12', '13', '14', '15']:
@@ -171,7 +171,7 @@ def main():
         
         for event, room in events['FH']:
             area, floor = room_lookup[('FH', room)]
-            if event not in area_signs[area][floor] and event not in remove_conference: 
+            if event not in area_signs[area][floor]: 
                 area_signs[area][floor].append(event)
 
         print(area_signs)
@@ -198,35 +198,6 @@ def main():
                 f.write(sign)
                 print("\twritten", f.name)
 
-
-    # generate lift signs (conferences)
-    print("Generate Lift Signs for FH (Conferences)")
-    lift_sign_raw = open("templates/fh_lift_conferences.tex.tmpl", "r").read()
-    for date, events in all_events_single.items():
-        if date not in ['12', '13', '14', '15'] :
-            continue
-        area_signs = defaultdict(lambda: defaultdict(list))
-        
-        for event, room in events['FH']:
-            area, floor = room_lookup[('FH', room)]
-            if event not in area_signs[area][floor] and event in remove_conference: 
-                area_signs[area][floor].append(event)
-
-        for area in area_signs.keys():
-            workshops = ""
-            for floor in list(range(1,11)[::-1]) + ['EG']:
-                eventlist = ""
-                if str(floor) in area_signs[area]:
-                    eventlist += ", ".join(sorted(set(area_signs[area][str(floor)])))
-                workshops += "\\FN{%s} & %s \\\\\n" % (str(floor), eventlist)
-                if floor != 'EG':
-                    workshops += "\\hline\n"
-            sign = lift_sign_raw.replace("$$area$$",
-                    area).replace("$$workshops$$", workshops)
-            with open("../src/freihaus/lift_conferences/fh_lift_%s_%s.tex" %
-                    (area.replace('\\', '').lower(), date), "w+") as f:
-                f.write(sign)
-                print("\twritten", f.name)
 
     print("generate epsilon signs for FH")
     fh_epsilon_raw = open("templates/fh_epsilon.tex.tmpl", "r").read()
