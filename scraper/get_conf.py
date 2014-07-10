@@ -98,10 +98,14 @@ def main():
             'RTA-TLCA', 'SAT', 'KR', 'LATD']
 
     date_matcher = re.compile("[A-Za-z, ]+([0-9]{1,2})[a-z]+")
+
     all_events = {}
+    all_events_single = {}
+    
     for k, v in parser.get_result().items():
         date = date_matcher.match(k).group(1) 
         events = defaultdict(list)
+        events_single = defaultdict(list)
         for x, y in v:
             if x not in remove_title and y not in remove_place:
                 if y in replace_place:
@@ -116,12 +120,18 @@ def main():
                 else:
                     building = None
                     room = y
+                
                 events[building].append((x, room))
+
+                # adding all events seperately as well
+                for x1 in x.split(", "):
+                    events_single[building].append((x1, room))
         if len(events) > 0:
             all_events[date] = events
+            all_events_single[date] = events_single
 
     # all_events contains now a {date-> {building -> [events (name, room)]}}
-
+    
     room_lookup = {}
     # room lookup is used to look up rooms
     with open("rooms.csv", "r") as f:
@@ -129,17 +139,22 @@ def main():
             building, room, area, floor = line.replace('\n', '').split(',')
             room_lookup[(building, room)] = (area, floor)
 
+
+    # ===================================== #
+
+
     # now generate the signs...
     # generate event signs for FH: 
     print("Generate Event Lists for FH")
     event_list_raw = open("templates/fh_events.tex.tmpl", "r").read()
-    for date, events in all_events.items():
+    for date, events in all_events_single.items():
         if date not in ['12', '13', '14', '15']:
             continue
         event_list = event_list_raw
         event_list = event_list.replace("$$date$$", date)
         table = "\n".join("%s & %s & %s \\\\" % (event, room_lookup[('FH', room)][0],
-            room_lookup[('FH', room)][1]) for event, room in sorted(events['FH']))
+            room_lookup[('FH', room)][1]) for event, room in
+            sorted(set(events['FH'])) if event not in remove_conference)
         event_list = event_list.replace("$$events$$", table)
         
         with open("../src/freihaus/eventplan/fh_event_%s.tex" % date, "w+") as f:
@@ -149,15 +164,17 @@ def main():
     # generate lift signs
     print("Generate Lift Signs for FH (Workshops)")
     lift_sign_raw = open("templates/fh_lift.tex.tmpl", "r").read()
-    for date, events in all_events.items():
-        if date not in ['12', '13', '14', '15'] and x not in remove_conference:
+    for date, events in all_events_single.items():
+        if date not in ['12', '13', '14', '15']:
             continue
         area_signs = defaultdict(lambda: defaultdict(list))
         
         for event, room in events['FH']:
             area, floor = room_lookup[('FH', room)]
-            if event not in area_signs[area][floor]: 
+            if event not in area_signs[area][floor] and event not in remove_conference: 
                 area_signs[area][floor].append(event)
+
+        print(area_signs)
 
         for area in area_signs.keys():
             workshops = ""
@@ -177,6 +194,36 @@ def main():
             sign = lift_sign_raw.replace("$$area$$",
                     area).replace("$$workshops$$", workshops)
             with open("../src/freihaus/lift/fh_lift_%s_%s.tex" %
+                    (area.replace('\\', '').lower(), date), "w+") as f:
+                f.write(sign)
+                print("\twritten", f.name)
+
+
+    # generate lift signs (conferences)
+    print("Generate Lift Signs for FH (Conferences)")
+    lift_sign_raw = open("templates/fh_lift_conferences.tex.tmpl", "r").read()
+    for date, events in all_events_single.items():
+        if date not in ['12', '13', '14', '15'] :
+            continue
+        area_signs = defaultdict(lambda: defaultdict(list))
+        
+        for event, room in events['FH']:
+            area, floor = room_lookup[('FH', room)]
+            if event not in area_signs[area][floor] and event in remove_conference: 
+                area_signs[area][floor].append(event)
+
+        for area in area_signs.keys():
+            workshops = ""
+            for floor in list(range(1,11)[::-1]) + ['EG']:
+                eventlist = ""
+                if str(floor) in area_signs[area]:
+                    eventlist += ", ".join(sorted(set(area_signs[area][str(floor)])))
+                workshops += "\\FN{%s} & %s \\\\\n" % (str(floor), eventlist)
+                if floor != 'EG':
+                    workshops += "\\hline\n"
+            sign = lift_sign_raw.replace("$$area$$",
+                    area).replace("$$workshops$$", workshops)
+            with open("../src/freihaus/lift_conferences/fh_lift_%s_%s.tex" %
                     (area.replace('\\', '').lower(), date), "w+") as f:
                 f.write(sign)
                 print("\twritten", f.name)
@@ -208,7 +255,7 @@ def main():
             sign = fh_epsilon_raw.replace("$$event$$", event).replace("$$room$$",
             room).replace("$$area$$", area).replace("$$floor$$", floor)
             with open("../src/hauptgebaeude/event/event_%s_%s.tex" %
-            (event.replace(", ", "").lower(),
+            (event.replace(", ", "").replace(" ", "").lower(),
                 room.replace(" ", "").replace("/", "").lower()), "w+") as f:
                 f.write(sign)
                 print("\twritten", f.name)

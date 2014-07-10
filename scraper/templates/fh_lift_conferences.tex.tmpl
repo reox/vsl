@@ -1,0 +1,24 @@
+% Sign for the Lift: Shows Floors and Events
+\documentclass{article}
+
+\usepackage[a3paper, top=15mm, bottom=0mm, left=0mm, right=0mm]{geometry}
+\usepackage{vsl}
+\usepackage{tabularx}
+\usepackage{multirow}
+
+\begin{document}
+\printVSLEventHeader{Conferences}{Area $$area$$}
+
+\vspace{1cm}
+
+\begin{vsltext}{1.8cm}{2.2cm}
+\begin{center}
+\begin{tabularx}{0.6\textwidth}{ l X }
+    \textbf{Floor} & \textbf{Event} \\
+    $$workshops$$
+\end{tabularx}
+\end{center}
+\end{vsltext}
+
+
+\end{document}
