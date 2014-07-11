@@ -11,11 +11,9 @@ out/combined-%.pdf: out
 	pdftk $(sort $(wildcard $(addprefix out/, $(subst .pdf, ,$(subst combined-, ,$(@F))))/*.pdf)) cat output $@
 
 combine: $(addsuffix .pdf, $(patsubst %/, %, $(subst out/, out/combined-,$(wildcard out/*/))))
-	@echo $<
 
 all: ${PDF_TARGETS}
 	combine
-
 
 clean:
 	rm out/ -rf
