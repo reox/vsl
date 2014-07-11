@@ -1,8 +1,11 @@
 # This is a very generic Makefile to build all tex files in a subdirectory
-.PHONY: clean combine
+.PHONY: clean combine all
 
 TEX_SOURCES=$(wildcard */*.tex)
 PDF_TARGETS=$(addprefix out/, $(TEX_SOURCES:.tex=.pdf))
+
+all: ${PDF_TARGETS}
+	$(MAKE) combine
 
 out/%.pdf: %.tex
 	latexmk -pdflatex=lualatex -pdf -output-directory=$(@D) $<
@@ -12,8 +15,6 @@ out/combined-%.pdf: out
 
 combine: $(addsuffix .pdf, $(patsubst %/, %, $(subst out/, out/combined-,$(wildcard out/*/))))
 
-all: ${PDF_TARGETS}
-	combine
 
 clean:
 	rm out/ -rf
