@@ -171,10 +171,9 @@ def main():
         
         for event, room in events['FH']:
             area, floor = room_lookup[('FH', room)]
-            if event not in area_signs[area][floor]: 
-                area_signs[area][floor].append(event)
-
-        print(area_signs)
+            if event not in area_signs[area][floor] and event not in ['FLoC',
+                    'VSL'] and not event.startswith('FLoC'): 
+                area_signs[area][floor].append(event if event not in remove_conference else "\\textbf{%s}" % event)
 
         for area in area_signs.keys():
             workshops = ""
@@ -187,6 +186,9 @@ def main():
                     if area != '\\AreaC':
                         eventlist += "(Area \\AreaC) "
                 if str(floor) in area_signs[area]:
+                    if floor == 1 and len(set(area_signs[area][str(floor)])) > 0:
+                        eventlist = eventlist[:-1]
+                        eventlist += ", "
                     eventlist += ", ".join(sorted(set(area_signs[area][str(floor)])))
                 workshops += "\\FN{%s} & %s \\\\\n" % (str(floor), eventlist)
                 if floor != 'EG':
