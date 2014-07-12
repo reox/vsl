@@ -152,8 +152,8 @@ def main():
             continue
         event_list = event_list_raw
         event_list = event_list.replace("$$date$$", date)
-        table = "\n".join("%s & %s & %s \\\\" % (event, room_lookup[('FH', room)][0],
-            room_lookup[('FH', room)][1]) for event, room in
+        table = "\n".join("%s & %s & %s & %s \\\\" % (event, room_lookup[('FH', room)][0],
+            room_lookup[('FH', room)][1], room) for event, room in
             sorted(set(events['FH'])) if event not in remove_conference)
         event_list = event_list.replace("$$events$$", table)
         
@@ -177,7 +177,19 @@ def main():
 
         for area in area_signs.keys():
             workshops = ""
-            for floor in list(range(1,11)[::-1]) + ['EG']:
+            if area == '\\AreaA':
+                # green area, only 8 floors
+                floor_max = 9
+                extra = "5cm"
+            elif area == '\\AreaB':
+                # yellow area, 10 floors
+                floor_max = 11
+                extra = "1cm"
+            else:
+                # red area, 7 floors
+                floor_max = 8
+                extra = "4cm"
+            for floor in list(range(1,floor_max)[::-1]) + ['EG']:
                 eventlist = ""
                 if floor == 2:
                     eventlist += "\\Coffee{1.5cm} "
@@ -194,7 +206,9 @@ def main():
                 if floor != 'EG':
                     workshops += "\\hline\n"
             sign = lift_sign_raw.replace("$$area$$",
-                    area).replace("$$workshops$$", workshops)
+                    area).replace("$$workshops$$",
+                            workshops).replace("$$extra$$",
+                                    extra).replace("$$date$$", date)
             with open("../src/freihaus/lift/fh_lift_%s_%s.tex" %
                     (area.replace('\\', '').lower(), date), "w+") as f:
                 f.write(sign)
