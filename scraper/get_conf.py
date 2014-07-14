@@ -148,8 +148,8 @@ def main():
     print("Generate Event Lists for FH")
     event_list_raw = open("templates/fh_events.tex.tmpl", "r").read()
     for date, events in all_events_single.items():
-        if date not in ['12', '13', '14', '15']:
-            continue
+        #if date not in ['12', '13', '14', '15']:
+        #    continue
         event_list = event_list_raw
         event_list = event_list.replace("$$date$$", date)
         table = "\n".join("%s & %s & %s & %s \\\\" % (event, room_lookup[('FH', room)][0],
@@ -165,8 +165,8 @@ def main():
     print("Generate Lift Signs for FH (Workshops + Conferences)")
     lift_sign_raw = open("templates/fh_lift.tex.tmpl", "r").read()
     for date, events in all_events_single.items():
-        if date not in ['12', '13', '14', '15']:
-            continue
+#        if date not in ['12', '13', '14', '15']:
+#            continue
         area_signs = defaultdict(lambda: defaultdict(list))
         
         for event, room in events['FH']:
@@ -208,7 +208,7 @@ def main():
             sign = lift_sign_raw.replace("$$area$$",
                     area).replace("$$workshops$$",
                             workshops).replace("$$extra$$",
-                                    extra).replace("$$date$$", date)
+                                    extra)
             with open("../src/freihaus/lift/fh_lift_%s_%s.tex" %
                     (area.replace('\\', '').lower(), date), "w+") as f:
                 f.write(sign)
@@ -218,7 +218,8 @@ def main():
     print("generate epsilon signs for FH")
     fh_epsilon_raw = open("templates/fh_epsilon.tex.tmpl", "r").read()
     for date, events in all_events.items():
-        if date not in ['12', '13', '14', '15'] and x not in remove_conference:
+        #if date not in ['12', '13', '14', '15'] and x not in remove_conference:
+        if x not in remove_conference:
             continue
         for event, room in events['FH']:
             sign = fh_epsilon_raw.replace("$$event$$", event).replace("$$room$$",
@@ -232,8 +233,8 @@ def main():
     print("generate epsilon signs for MB")
     fh_epsilon_raw = open("templates/mb_epsilon.tex.tmpl", "r").read()
     for date, events in all_events.items():
-        if date not in ['12', '13', '14', '15']:
-            continue
+#        if date not in ['12', '13', '14', '15']:
+#            continue
         for event, room in events['MB']:
             area, floor = room_lookup[('MB', room)]
             if floor != 'EG':
