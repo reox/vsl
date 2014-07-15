@@ -154,7 +154,8 @@ def main():
         event_list = event_list.replace("$$date$$", date)
         table = "\n".join("%s & %s & %s & %s \\\\" % (event, room_lookup[('FH', room)][0],
             room_lookup[('FH', room)][1], room) for event, room in
-            sorted(set(events['FH'])) if event not in remove_conference)
+            sorted(set(events['FH'])) if event not in remove_conference and
+            not event.startswith("VSL"))
         event_list = event_list.replace("$$events$$", table)
         
         with open("../src/freihaus/eventplan/fh_event_%s.tex" % date, "w+") as f:

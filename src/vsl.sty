@@ -10,6 +10,8 @@
 \usepackage{graphicx}
 \usepackage{eso-pic}
 \usepackage{color}
+\usepackage{ragged2e}
+\usepackage{multirow}
 
 \usepackage{array}
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
@@ -39,45 +41,38 @@
 
 % Print a Sign with Eventname, Room, Floor and Area
 \newcommand\printVSL[1][Area]{
+    \printGenericVSLHeader
+    
+    \vspace{1.5cm}
     
     \makebox[\textwidth][c]{
-        \includegraphics[height=4cm,keepaspectratio]{VSL_logo_big.png}
-        \hspace{0.5cm}
-        \raggedleft{\fontsize{3cm}{3.4cm}\selectfont\color{vslblue}\textbf{\raisebox{0.5ex}{\Event}}}
+        {\fontsize{3cm}{3.4cm}\selectfont\color{vslblue}\textbf{\raisebox{0.5ex}{\Event}}}
     }
 
-    \vspace{1.5cm}
-
-    \noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
-
-    \vspace{1.5cm}
+    \vspace{1cm}
 
     \noindent\makebox[\textwidth][c]{
-        {\fontsize{3cm}{3cm}\selectfont\Room}
+        {\fontsize{2.5cm}{4cm}\selectfont\Room}
     }
 
-    \vspace{1cm}
-
-    \noindent\makebox[\linewidth]{\rule{\paperwidth}{0.4pt}}
-
-    \vspace{1cm}
+    \vspace{2cm}
 
     \noindent\parbox{.5\linewidth}{
         \begin{center}
-            {\fontsize{2cm}{1em}\selectfont {#1}}
+            {\fontsize{1.8cm}{1em}\selectfont {#1}}
 
-            \vspace{1.5cm}
+            \vspace{1cm}
 
-            {\fontsize{3cm}{2em}\selectfont {\Area}}
+            {\fontsize{2.5cm}{2em}\selectfont {\Area}}
         \end{center}
     }
     \noindent\parbox{.5\linewidth}{
         \begin{center}
-            {\fontsize{2cm}{1em}\selectfont {Floor}}
+            {\fontsize{1.8cm}{1em}\selectfont {Floor}}
 
-            \vspace{1.5cm}
+            \vspace{1cm}
 
-            {\fontsize{3cm}{2em}\selectfont {\Floor}}
+            {\fontsize{2.5cm}{2em}\selectfont {\Floor}}
         \end{center}
     }
 
