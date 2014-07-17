@@ -209,7 +209,7 @@ def main():
             sign = lift_sign_raw.replace("$$area$$",
                     area).replace("$$workshops$$",
                             workshops).replace("$$extra$$",
-                                    extra)
+                                    extra).replace("$$date$$", date+".07.2014")
             with open("../src/freihaus/lift/fh_lift_%s_%s.tex" %
                     (area.replace('\\', '').lower(), date), "w+") as f:
                 f.write(sign)
