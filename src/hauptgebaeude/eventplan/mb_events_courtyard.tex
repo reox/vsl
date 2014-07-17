@@ -1,0 +1,56 @@
+\documentclass{article}
+\usepackage[a3paper, top=30mm, bottom=0mm, left=0mm, right=0mm]{geometry}
+\usepackage{vsl}
+\usepackage{tabularx}
+\begin{document}
+\printVSLEventHeader{Events}{18. - 19.07.2014}
+
+\begin{vsltext}{2.5cm}{3.2cm}
+    \begin{center}
+        {\color{areared}\textbf{Reachable from Courtyard}}
+    \end{center}
+\end{vsltext}
+
+\begin{vsltext}{1.2cm}{1.5cm}
+    \begin{center}
+        \fbox{
+            \parbox[b][3.5em][c]{0.8\textwidth}{
+            Find the \Stair{0.8cm} Symbol in the Courtyard.
+
+            Then, there will be signs to the room.
+    }}
+    \end{center}
+\end{vsltext}
+
+\newcommand\GR{\fontsize{0.8cm}{1.5cm}\selectfont Ground}
+
+\vspace{1cm}
+
+\begin{vsltext}{1.0cm}{1.5cm}
+\begin{center}
+    \begin{tabular}{ L{8.5cm} l c l }
+        \textbf{Event Name} & \textbf{Stiege} & \textbf{Floor} & \textbf{Room}   \\
+        Logic Clq. & \Stair{0.6cm}4a & \GR & GUT Schulungsraum \\
+        ASA & \Stair{0.6cm}4 & 1 & Zeichensaal 13 \\
+        ITRS & \Stair{0.6cm}4 & 1 & Zeichensaal 14 \\
+        Logic Clq. & \Stair{0.6cm}5 & 2 & Seminarraum 225 \\
+        ParSearchOpt & {\fontsize{0.8cm}{1.5cm}\selectfont Courtyard
+    1}\textsuperscript{*}& \GR & Hörsaal 4 \\ 
+    \\
+    FCS-FCC & \Stair{0.6cm}7 & \GR & Hörsaal 7 \\
+    LaSh / Logic Clq. & \Stair{0.6cm}7 & 1 & Aufbaulabor \\
+
+\end{tabular}
+
+\vspace{1cm}
+
+\parbox[b][3em][c]{0.8\textwidth}{
+\huge{
+*) ParSearchOpt: If you come from Foyer (Stiege 1), enter the courtyard and turn
+to the \emph{right}. Then, you find the entrance to Hörsaal 4 in the far right
+corner of the courtyard.
+}
+}
+\end{center}
+\end{vsltext}
+\end{document}
