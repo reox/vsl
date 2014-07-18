@@ -1,0 +1,26 @@
+% Sign for the Lift: Shows Floors and Events
+\documentclass{article}
+
+\usepackage[a3paper, top=30mm, bottom=0mm, left=0mm, right=0mm, landscape]{geometry}
+\usepackage{vsl}
+\usepackage{tabularx}
+\usepackage{multirow}
+
+\begin{document}
+\printVSLEventHeader{Vienna Summer of Logic}{19. - 24.07.2014}
+
+\vspace{4cm}
+
+\begin{vsltext}{2.9cm}{3.5cm}
+\begin{center}
+    \begin{tabular}{ C{19cm} | C{19cm} }
+        \multirow{2}{*}{\raisebox{-0.75cm}{Conferences}} & Coffee Break \\
+                                     & \Coffee{4cm} \\
+\end{tabular}
+
+\vspace{3cm}
+
+Floor 02
+\end{center}
+\end{vsltext}
+\end{document}
